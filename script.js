@@ -17,7 +17,7 @@ const blockedDates = ["2025-05-24", "2025-05-30"];
 // Load previous bookings
 const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
 
-function dateKey(day) {
+function dateKey(year, month, day) {
   return `${year}-${month + 1}-${day}`;
 }
 
