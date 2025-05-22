@@ -70,6 +70,17 @@ function generatePDF(start, end) {
 
 function handleDayClick(year, month, day) {
   const clickedDate = new Date(year, month, day);
+
+  // If clicking a date inside an existing selected range → clear it
+  if (start && end && clickedDate >= start && clickedDate <= end) {
+    start = null;
+    end = null;
+    rangeDisplay.textContent = "";
+    downloadBtn.style.display = "none";
+    renderCalendar();
+    return;
+  }
+
   if (!start || (start && end)) {
     start = clickedDate;
     end = null;
