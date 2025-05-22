@@ -105,4 +105,24 @@ function isBetween(year, month, day) {
   return d >= start && d <= end;
 }
 
+prevBtn.onclick = () => {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  renderCalendar();
+};
+
+nextBtn.onclick = () => {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar();
+};
+
+renderCalendar();
+
 renderCalendar();
