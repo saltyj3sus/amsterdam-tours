@@ -1,0 +1,43 @@
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: center;
+  padding: 2em;
+}
+
+h1 {
+  color: #d62828;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 600px;
+  margin: 1em auto;
+}
+
+.day {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.day.selected {
+  background-color: #0077b6;
+  color: white;
+}
+
+.day.blocked {
+  background-color: #adb5bd;
+  color: white;
+  cursor: not-allowed;
+}
+
+.day.booked {
+  background-color: #f77;
+  color: white;
+  cursor: not-allowed;
+}
