@@ -21,12 +21,6 @@ function dateKey(year, month, day) {
   return `${year}-${month + 1}-${day}`;
 }
 
-function isBetween(day) {
-  if (!start || !end) return false;
-  const d = new Date(year, month, day);
-  return d >= start && d <= end;
-}
-
 function renderCalendar() {
   calendar.innerHTML = "";
   monthYearDisplay.textContent = new Date(currentYear, currentMonth).toLocaleString('default', {
