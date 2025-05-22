@@ -29,65 +29,28 @@ function isBetween(day) {
 
 function renderCalendar() {
   calendar.innerHTML = "";
+  monthYearDisplay.textContent = new Date(currentYear, currentMonth).toLocaleString('default', {
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
   for (let i = 1; i <= daysInMonth; i++) {
+    const key = dateKey(currentYear, currentMonth, i);
     const dayEl = document.createElement("div");
     dayEl.className = "day";
-    const key = dateKey(i);
+    dayEl.textContent = i;
 
     if (blockedDates.includes(key)) {
       dayEl.classList.add("blocked");
-      dayEl.textContent = i;
-      calendar.appendChild(dayEl);
-      continue;
-    }
-
-    if (bookings.includes(key)) {
+    } else if (bookings.includes(key)) {
       dayEl.classList.add("booked");
-      dayEl.textContent = i;
-      calendar.appendChild(dayEl);
-      continue;
-    }
-
-    dayEl.textContent = i;
-
-    if (isBetween(i)) {
+    } else if (isBetween(currentYear, currentMonth, i)) {
       dayEl.classList.add("selected");
+    } else {
+      dayEl.onclick = () => handleDayClick(currentYear, currentMonth, i);
     }
-
-    dayEl.onclick = () => {
-      const clickedDate = new Date(year, month, i);
-      if (!start || (start && end)) {
-        start = clickedDate;
-        end = null;
-      } else {
-        if (clickedDate < start) {
-          end = start;
-          start = clickedDate;
-        } else {
-          end = clickedDate;
-        }
-
-        const selectedDates = [];
-        for (
-          let d = new Date(start);
-          d <= end;
-          d.setDate(d.getDate() + 1)
-        ) {
-          const key = dateKey(d.getDate());
-          if (!blockedDates.includes(key)) {
-            bookings.push(key);
-            selectedDates.push(key);
-          }
-        }
-
-        localStorage.setItem("bookings", JSON.stringify(bookings));
-        rangeDisplay.textContent = `You booked from ${start.toDateString()} to ${end.toDateString()}`;
-        downloadBtn.style.display = "inline-block";
-        downloadBtn.onclick = () => generatePDF(start, end);
-      }
-
-      renderCalendar();
-    };
 
     calendar.appendChild(dayEl);
   }
