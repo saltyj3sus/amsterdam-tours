@@ -135,5 +135,3 @@ nextBtn.onclick = () => {
 };
 
 renderCalendar();
-
-renderCalendar();
