@@ -1,13 +1,15 @@
 const calendar = document.getElementById("calendar");
 const rangeDisplay = document.getElementById("range-display");
 const downloadBtn = document.getElementById("download-pdf");
+const monthYearDisplay = document.getElementById("month-year");
+const prevBtn = document.getElementById("prev-month");
+const nextBtn = document.getElementById("next-month");
 
 let start = null;
 let end = null;
 
-const year = 2025;
-const month = 5;
-const daysInMonth = new Date(year, month + 1, 0).getDate();
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth(); // 0-indexed
 
 // Modify this array in code to block out dates
 const blockedDates = ["2025-05-24", "2025-05-30"];
