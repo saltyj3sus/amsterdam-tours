@@ -96,9 +96,11 @@ function generatePDF(start, end) {
   const doc = new jsPDF();
   doc.text("Noa’s Amsterdam Excursion Tours Inc.", 10, 10);
   doc.text(`Booking Confirmation`, 10, 20);
-  doc.text(`From: ${start.toDateString()}`, 10, 30);
-  doc.text(`To: ${end.toDateString()}`, 10, 40);
-  doc.save("Noas_Amsterdam_Tour_Booking.pdf");
+  doc.text("Thank you for booking with us! Our team will process your request as soon as possible.", 10, 30);
+  doc.text(`From: ${start.toDateString()}`, 10, 40);
+  doc.text(`To: ${end.toDateString()}`, 10, 50);
+  doc.text("If you have any questions or special requests, please contact your assigned tour guide", 10,60);
+  doc.save("amsterdam_tour_booking_confirmation.pdf");
 }
 
 renderCalendar();
