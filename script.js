@@ -68,4 +68,41 @@ function generatePDF(start, end) {
   doc.save("amsterdam_tour_booking_confirmation.pdf");
 }
 
+function handleDayClick(year, month, day) {
+  const clickedDate = new Date(year, month, day);
+  if (!start || (start && end)) {
+    start = clickedDate;
+    end = null;
+  } else {
+    if (clickedDate < start) {
+      end = start;
+      start = clickedDate;
+    } else {
+      end = clickedDate;
+    }
+
+    const selectedDates = [];
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      const key = dateKey(d.getFullYear(), d.getMonth(), d.getDate());
+      if (!blockedDates.includes(key)) {
+        bookings.push(key);
+        selectedDates.push(key);
+      }
+    }
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    rangeDisplay.textContent = `You booked from ${start.toDateString()} to ${end.toDateString()}`;
+    downloadBtn.style.display = "inline-block";
+    downloadBtn.onclick = () => generatePDF(start, end);
+  }
+
+  renderCalendar();
+}
+
+function isBetween(year, month, day) {
+  if (!start || !end) return false;
+  const d = new Date(year, month, day);
+  return d >= start && d <= end;
+}
+
 renderCalendar();
