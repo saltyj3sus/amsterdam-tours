@@ -5,9 +5,8 @@ const downloadBtn = document.getElementById("download-pdf");
 let start = null;
 let end = null;
 
-const today = new Date();
-const year = today.getFullYear();
-const month = today.getMonth();
+const year = 2025;
+const month = 5;
 const daysInMonth = new Date(year, month + 1, 0).getDate();
 
 // Modify this array in code to block out dates
