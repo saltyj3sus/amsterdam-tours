@@ -144,3 +144,4 @@ resetBtn.onclick = () => {
 };
 
 renderCalendar();
+updateSelectedText();
