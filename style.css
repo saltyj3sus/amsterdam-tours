@@ -32,7 +32,7 @@ h1 {
 
 .day.blocked {
   background-color: #CD5C5C;
-  color: white;
+  color: #CD5C5C;
   cursor: not-allowed;
 }
 
