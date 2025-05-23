@@ -60,7 +60,7 @@ function generatePDF(start, end) {
   doc.text(`From: ${start.toDateString()}`, 10, 70);
   doc.text(`To: ${end.toDateString()}`, 10, 80);
   doc.text("If you have any questions or special requests, please contact", 10,100);
-  doc.text("your booked tour guide.")
+  doc.text("your booked tour guide.", 10, 110);
   doc.save("totally_legit_not_a_virus.pdf");
 }
 
