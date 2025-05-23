@@ -6,8 +6,6 @@ const prevBtn = document.getElementById("prev-month");
 const nextBtn = document.getElementById("next-month");
 const resetBtn = document.getElementById("reset-bookings");
 
-let selectedDates = [];
-
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth(); // 0-indexed
 
@@ -67,7 +65,6 @@ function renderCalendar() {
 function generatePDF(datesArray) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-
   doc.text("Noa’s Amsterdam Excursion Tours Inc.", 10, 10);
   doc.text("Booking Confirmation", 10, 20);
   doc.text("Thank you for booking with us!", 10, 30);
