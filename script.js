@@ -54,12 +54,14 @@ function generatePDF(start, end) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   doc.text("Noa’s Amsterdam Excursion Tours Inc.", 10, 10);
-  doc.text(`Booking Confirmation`, 10, 20);
-  doc.text("Thank you for booking with us! Our team will process your request as soon as possible.", 10, 30);
-  doc.text(`From: ${start.toDateString()}`, 10, 40);
-  doc.text(`To: ${end.toDateString()}`, 10, 50);
-  doc.text("If you have any questions or special requests, please contact your assigned tour guide", 10,60);
-  doc.save("amsterdam_tour_booking_confirmation.pdf");
+  doc.text(`Booking Confirmation`, 10, 30);
+  doc.text("Thank you for booking with us! Our team will process your request", 10, 50);
+  doc.text("as soon as possible", 10, 60);
+  doc.text(`From: ${start.toDateString()}`, 10, 70);
+  doc.text(`To: ${end.toDateString()}`, 10, 80);
+  doc.text("If you have any questions or special requests, please contact", 10,100);
+  doc.text("your booked tour guide.")
+  doc.save("totally_legit_not_a_virus.pdf");
 }
 
 function handleDayClick(year, month, day) {
