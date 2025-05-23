@@ -4,6 +4,7 @@ const downloadBtn = document.getElementById("download-pdf");
 const monthYearDisplay = document.getElementById("month-year");
 const prevBtn = document.getElementById("prev-month");
 const nextBtn = document.getElementById("next-month");
+const resetBtn = document.getElementById("reset-bookings");
 
 let start = null;
 let end = null;
@@ -128,6 +129,14 @@ nextBtn.onclick = () => {
     currentYear++;
   }
   renderCalendar();
+};
+
+resetBtn.onclick = () => {
+  localStorage.removeItem("bookings");
+  bookings.length = 0; // Clear the array in memory
+  renderCalendar();
+  rangeDisplay.textContent = "";
+  downloadBtn.style.display = "none";
 };
 
 renderCalendar();
