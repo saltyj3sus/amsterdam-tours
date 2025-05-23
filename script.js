@@ -11,7 +11,7 @@ window.onload = () => {
   let currentMonth = new Date().getMonth(); // 0-indexed
 
 // Modify this array in code to block out dates
-  const blockedDates = ["2025-05-24", "2025-05-30"];
+  const blockedDates = ["2025-06-06", "2025-06-07", "2025-06-08", "2025-06-09"];
 
 // Load previous bookings
   let bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
