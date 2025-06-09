@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reviews – Noa’s Amsterdam Excursion Tours Inc.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>⭐ Customer Reviews</h1>
+  <a href="index.html">← Back to Calendar</a>
+  
+  <div id="reviews-container">
+    <!-- Reviews will be added here by JavaScript -->
+  </div>
+
+  <script>
+    const reviews = [
+      { name: "Anna", rating: 5, comment: "Absolutely wonderful tour!" },
+      { name: "Lars", rating: 4, comment: "Great experience, loved the guide!" },
+      { name: "Sophie", rating: 5, comment: "Best tour I’ve had in Amsterdam!" }
+    ];
+
+    const container = document.getElementById('reviews-container');
+
+    reviews.forEach(({ name, rating, comment }) => {
+      const reviewEl = document.createElement('div');
+      reviewEl.className = "review";
+      reviewEl.innerHTML = `
+        <h3>${name}</h3>
+        <p>${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</p>
+        <p>${comment}</p>
+        <hr/>
+      `;
+      container.appendChild(reviewEl);
+    });
+  </script>
+</body>
+</html>
