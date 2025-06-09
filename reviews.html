@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reviews – Noa’s Amsterdam Excursion Tours Inc.</title>
+  <meta charset="UTF-8" />
+  <title>Tour Reviews – Noa’s Amsterdam Excursion Tours Inc.</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<p><a href="index.html" class="back-button">← Back to Calendar</a></p>
 <body>
-  <h1>⭐ Customer Reviews</h1>
-  <a href="index.html">← Back to Calendar</a>
-  
-  <div id="reviews-container">
-    <!-- Reviews will be added here by JavaScript -->
+  <h1>Tour Reviews</h1>
+  <p>See what others have said about their experience:</p>
+
+  <div class="review">
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>"Amazing tour! Loved every moment."</p>
+    <p>- Alex</p>
   </div>
 
-  <script>
-    const reviews = [
-      { name: "Anna", rating: 5, comment: "Absolutely wonderful tour!" },
-      { name: "Lars", rating: 4, comment: "Great experience, loved the guide!" },
-      { name: "Sophie", rating: 5, comment: "Best tour I’ve had in Amsterdam!" }
-    ];
+  <div class="review">
+    <p>⭐️⭐️⭐️⭐️</p>
+    <p>"Very informative and well-organized."</p>
+    <p>- Jamie</p>
+  </div>
 
-    const container = document.getElementById('reviews-container');
+  <!-- Add more reviews here -->
 
-    reviews.forEach(({ name, rating, comment }) => {
-      const reviewEl = document.createElement('div');
-      reviewEl.className = "review";
-      reviewEl.innerHTML = `
-        <h3>${name}</h3>
-        <p>${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</p>
-        <p>${comment}</p>
-        <hr/>
-      `;
-      container.appendChild(reviewEl);
-    });
-  </script>
+  <!-- ✅ Add this button just before </body> -->
+  <a href="index.html" class="back-button">← Back to Calendar</a>
 </body>
 </html>
