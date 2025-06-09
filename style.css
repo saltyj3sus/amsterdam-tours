@@ -41,3 +41,36 @@ h1 {
   color: white;
   cursor: not-allowed;
 }
+
+/* === Review Page Styles === */
+.review-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.review {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.review .stars {
+  color: #f39c12; /* gold stars */
+  font-size: 20px;
+}
+
+.review .text {
+  margin-top: 5px;
+  font-style: italic;
+  color: #333;
+}
+
+.review h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #222;
+}
